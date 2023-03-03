@@ -1,0 +1,32 @@
+{
+  "name": "rails-assets-holderjs",
+  "downloads": null,
+  "version": "2.9.6",
+  "version_downloads": null,
+  "platform": "ruby",
+  "authors": "rails-assets.org",
+  "info": "",
+  
+  "licenses": "MIT",
+  
+  "metadata": {
+
+  },
+  "sha": null,
+  "project_uri": "https://github.com/imsky/holder",
+  "gem_uri": null,
+  "homepage_uri": "https://github.com/imsky/holder",
+  "wiki_uri": null,
+  "documentation_uri": null,
+  "mailing_list_uri": null,
+  "source_code_uri": "https://github.com/imsky/holder",
+  "bug_tracker_uri": null,
+  "dependencies": {
+    "development": [
+    
+    ],
+    "runtime": [
+
+    ]
+  }
+}

@@ -1,0 +1,484 @@
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------
+PrawnRailsTest: test_matches_.PDF_extension_regardless_of_case
+--------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PrawnRailsTest: test_text_can_take_non_strings
+----------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------------
+NavigationTest: test_Respects_the_'disposition'_option_alone
+------------------------------------------------------------
+Started GET "/reports/custom_disposition.pdf" for 127.0.0.1 at 2021-05-26 22:02:25 -0700
+Processing by ReportsController#custom_disposition as PDF
+  Rendering reports/custom_disposition.pdf.prawn
+  Rendered reports/custom_disposition.pdf.prawn (Duration: 2.3ms | Allocations: 1793)
+Completed 200 OK in 10ms (Views: 6.1ms | ActiveRecord: 0.0ms | Allocations: 4958)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------
+NavigationTest: test_render_to_string_in_mailer
+-----------------------------------------------
+  Rendering reports/sample.pdf.prawn
+  Rendered reports/sample.pdf.prawn (Duration: 13.2ms | Allocations: 15750)
+  Rendering reports_mailer/send_report.html.erb
+  Rendered reports_mailer/send_report.html.erb (Duration: 0.4ms | Allocations: 79)
+ReportsMailer#send_report: processed outbound mail in 21.7ms
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------------------
+NavigationTest: test_Sets_file_name_from_'@filename'_when_present
+-----------------------------------------------------------------
+Started GET "/reports/ivar_filename.pdf" for 127.0.0.1 at 2021-05-26 22:02:25 -0700
+Processing by ReportsController#ivar_filename as PDF
+  Rendering reports/custom.pdf.prawn
+  Rendered reports/custom.pdf.prawn (Duration: 1.9ms | Allocations: 1664)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms | Allocations: 2031)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+NavigationTest: test_Renders_sample_pdf_action
+----------------------------------------------
+Started GET "/reports/sample?format=pdf" for 127.0.0.1 at 2021-05-26 22:02:25 -0700
+Processing by ReportsController#sample as PDF
+  Rendering reports/sample.pdf.prawn
+  Rendered reports/sample.pdf.prawn (Duration: 29.2ms | Allocations: 12640)
+Completed 200 OK in 30ms (Views: 29.5ms | ActiveRecord: 0.0ms | Allocations: 13029)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------------------------
+NavigationTest: test_Respects_both_options_on_'prawn-document'_together
+-----------------------------------------------------------------------
+Started GET "/reports/custom.pdf" for 127.0.0.1 at 2021-05-26 22:02:25 -0700
+Processing by ReportsController#custom as PDF
+  Rendering reports/custom.pdf.prawn
+  Rendered reports/custom.pdf.prawn (Duration: 1.6ms | Allocations: 1601)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms | Allocations: 1856)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------------------------------------
+NavigationTest: test_Renders_table_pdf_action_using_auto-required_plugin_Prawn-Table
+------------------------------------------------------------------------------------
+Started GET "/reports/table?format=pdf" for 127.0.0.1 at 2021-05-26 22:02:25 -0700
+Processing by ReportsController#table as PDF
+  Rendering reports/table.pdf.prawn
+  Rendered reports/table.pdf.prawn (Duration: 8.7ms | Allocations: 10711)
+Completed 200 OK in 9ms (Views: 9.0ms | ActiveRecord: 0.0ms | Allocations: 11096)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------
+NavigationTest: test_Renders_pdf_to_string
+------------------------------------------
+  Rendering reports/sample.pdf.prawn
+  Rendered reports/sample.pdf.prawn (Duration: 23.6ms | Allocations: 12632)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+NavigationTest: test_Maintains_existing_'Content-Disposition'_header
+--------------------------------------------------------------------
+Started GET "/reports/custom_headers.pdf" for 127.0.0.1 at 2021-05-26 22:02:25 -0700
+Processing by ReportsController#custom_headers as PDF
+  Rendering reports/custom.pdf.prawn
+  Rendered reports/custom.pdf.prawn (Duration: 1.5ms | Allocations: 1603)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms | Allocations: 1842)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+NavigationTest: test_Renders_html_action
+----------------------------------------
+Started GET "/reports/sample" for 127.0.0.1 at 2021-05-26 22:02:25 -0700
+Processing by ReportsController#sample as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering reports/sample.html.erb within layouts/application
+  Rendered reports/sample.html.erb within layouts/application (Duration: 0.7ms | Allocations: 74)
+  Rendered layout layouts/application.html.erb (Duration: 15.9ms | Allocations: 7026)
+Completed 200 OK in 20ms (Views: 17.5ms | ActiveRecord: 0.0ms | Allocations: 7788)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------
+NavigationTest: test_Registers_:pdf_mime_type
+---------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------
+NavigationTest: test_Respects_the_'filename'_option_alone
+---------------------------------------------------------
+Started GET "/reports/custom_filename.pdf" for 127.0.0.1 at 2021-05-26 22:02:25 -0700
+Processing by ReportsController#custom_filename as PDF
+  Rendering reports/custom_filename.pdf.prawn
+  Rendered reports/custom_filename.pdf.prawn (Duration: 2.0ms | Allocations: 1662)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms | Allocations: 2042)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------
+NavigationTest: test_Registers_:prawn_template_handler
+------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+NavigationTest: test_Maintains_existing_'Content-Disposition'_header
+--------------------------------------------------------------------
+Started GET "/reports/custom_headers.pdf" for 127.0.0.1 at 2021-05-26 22:02:59 -0700
+Processing by ReportsController#custom_headers as PDF
+  Rendering reports/custom.pdf.prawn
+  Rendered reports/custom.pdf.prawn (Duration: 19.9ms | Allocations: 34835)
+Completed 200 OK in 27ms (Views: 25.1ms | ActiveRecord: 0.0ms | Allocations: 37994)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------
+NavigationTest: test_Respects_the_'filename'_option_alone
+---------------------------------------------------------
+Started GET "/reports/custom_filename.pdf" for 127.0.0.1 at 2021-05-26 22:02:59 -0700
+Processing by ReportsController#custom_filename as PDF
+  Rendering reports/custom_filename.pdf.prawn
+  Rendered reports/custom_filename.pdf.prawn (Duration: 1.6ms | Allocations: 1660)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 2049)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------
+NavigationTest: test_render_to_string_in_mailer
+-----------------------------------------------
+  Rendering reports/sample.pdf.prawn
+  Rendered reports/sample.pdf.prawn (Duration: 13.5ms | Allocations: 15750)
+  Rendering reports_mailer/send_report.html.erb
+  Rendered reports_mailer/send_report.html.erb (Duration: 0.2ms | Allocations: 79)
+ReportsMailer#send_report: processed outbound mail in 22.2ms
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------
+NavigationTest: test_Registers_:prawn_template_handler
+------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------------------------------------
+NavigationTest: test_Renders_table_pdf_action_using_auto-required_plugin_Prawn-Table
+------------------------------------------------------------------------------------
+Started GET "/reports/table?format=pdf" for 127.0.0.1 at 2021-05-26 22:02:59 -0700
+Processing by ReportsController#table as PDF
+  Rendering reports/table.pdf.prawn
+  Rendered reports/table.pdf.prawn (Duration: 8.3ms | Allocations: 10706)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.0ms | Allocations: 11097)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------------------------
+NavigationTest: test_Respects_both_options_on_'prawn-document'_together
+-----------------------------------------------------------------------
+Started GET "/reports/custom.pdf" for 127.0.0.1 at 2021-05-26 22:02:59 -0700
+Processing by ReportsController#custom as PDF
+  Rendering reports/custom.pdf.prawn
+  Rendered reports/custom.pdf.prawn (Duration: 1.9ms | Allocations: 1599)
+Completed 200 OK in 2ms (Views: 2.3ms | ActiveRecord: 0.0ms | Allocations: 1859)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------
+NavigationTest: test_Registers_:pdf_mime_type
+---------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------------
+NavigationTest: test_Respects_the_'disposition'_option_alone
+------------------------------------------------------------
+Started GET "/reports/custom_disposition.pdf" for 127.0.0.1 at 2021-05-26 22:02:59 -0700
+Processing by ReportsController#custom_disposition as PDF
+  Rendering reports/custom_disposition.pdf.prawn
+  Rendered reports/custom_disposition.pdf.prawn (Duration: 1.8ms | Allocations: 1632)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.0ms | Allocations: 2014)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------------------
+NavigationTest: test_Sets_file_name_from_'@filename'_when_present
+-----------------------------------------------------------------
+Started GET "/reports/ivar_filename.pdf" for 127.0.0.1 at 2021-05-26 22:02:59 -0700
+Processing by ReportsController#ivar_filename as PDF
+  Rendering reports/custom.pdf.prawn
+  Rendered reports/custom.pdf.prawn (Duration: 1.7ms | Allocations: 1599)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 1841)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------
+NavigationTest: test_Renders_pdf_to_string
+------------------------------------------
+  Rendering reports/sample.pdf.prawn
+  Rendered reports/sample.pdf.prawn (Duration: 39.5ms | Allocations: 12636)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+NavigationTest: test_Renders_sample_pdf_action
+----------------------------------------------
+Started GET "/reports/sample?format=pdf" for 127.0.0.1 at 2021-05-26 22:02:59 -0700
+Processing by ReportsController#sample as PDF
+  Rendering reports/sample.pdf.prawn
+  Rendered reports/sample.pdf.prawn (Duration: 13.6ms | Allocations: 12633)
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.0ms | Allocations: 13029)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+NavigationTest: test_Renders_html_action
+----------------------------------------
+Started GET "/reports/sample" for 127.0.0.1 at 2021-05-26 22:03:00 -0700
+Processing by ReportsController#sample as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering reports/sample.html.erb within layouts/application
+  Rendered reports/sample.html.erb within layouts/application (Duration: 0.3ms | Allocations: 72)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 3237)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.0ms | Allocations: 4000)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PrawnRailsTest: test_text_can_take_non_strings
+----------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------
+PrawnRailsTest: test_matches_.PDF_extension_regardless_of_case
+--------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------
+PrawnRailsTest: test_matches_.PDF_extension_regardless_of_case
+--------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PrawnRailsTest: test_text_can_take_non_strings
+----------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------------------
+NavigationTest: test_Sets_file_name_from_'@filename'_when_present
+-----------------------------------------------------------------
+Started GET "/reports/ivar_filename.pdf" for 127.0.0.1 at 2021-05-26 22:41:10 -0700
+Processing by ReportsController#ivar_filename as PDF
+  Rendering reports/custom.pdf.prawn
+  Rendered reports/custom.pdf.prawn (Duration: 3.5ms | Allocations: 1819)
+Completed 200 OK in 18ms (Views: 13.1ms | ActiveRecord: 0.0ms | Allocations: 4974)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------
+NavigationTest: test_Respects_the_'filename'_option_alone
+---------------------------------------------------------
+Started GET "/reports/custom_filename.pdf" for 127.0.0.1 at 2021-05-26 22:41:10 -0700
+Processing by ReportsController#custom_filename as PDF
+  Rendering reports/custom_filename.pdf.prawn
+  Rendered reports/custom_filename.pdf.prawn (Duration: 1.7ms | Allocations: 1660)
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 2049)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+NavigationTest: test_Renders_sample_pdf_action
+----------------------------------------------
+Started GET "/reports/sample?format=pdf" for 127.0.0.1 at 2021-05-26 22:41:10 -0700
+Processing by ReportsController#sample as PDF
+  Rendering reports/sample.pdf.prawn
+  Rendered reports/sample.pdf.prawn (Duration: 13.6ms | Allocations: 15757)
+Completed 200 OK in 14ms (Views: 13.9ms | ActiveRecord: 0.0ms | Allocations: 16152)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------
+NavigationTest: test_Registers_:prawn_template_handler
+------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------------------------
+NavigationTest: test_Respects_both_options_on_'prawn-document'_together
+-----------------------------------------------------------------------
+Started GET "/reports/custom.pdf" for 127.0.0.1 at 2021-05-26 22:41:10 -0700
+Processing by ReportsController#custom as PDF
+  Rendering reports/custom.pdf.prawn
+  Rendered reports/custom.pdf.prawn (Duration: 1.5ms | Allocations: 1604)
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms | Allocations: 1865)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------
+NavigationTest: test_render_to_string_in_mailer
+-----------------------------------------------
+  Rendering reports/sample.pdf.prawn
+  Rendered reports/sample.pdf.prawn (Duration: 11.7ms | Allocations: 12630)
+  Rendering reports_mailer/send_report.html.erb
+  Rendered reports_mailer/send_report.html.erb (Duration: 0.5ms | Allocations: 80)
+ReportsMailer#send_report: processed outbound mail in 19.3ms
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------
+NavigationTest: test_Renders_pdf_to_string
+------------------------------------------
+  Rendering reports/sample.pdf.prawn
+  Rendered reports/sample.pdf.prawn (Duration: 15.9ms | Allocations: 12634)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+NavigationTest: test_Maintains_existing_'Content-Disposition'_header
+--------------------------------------------------------------------
+Started GET "/reports/custom_headers.pdf" for 127.0.0.1 at 2021-05-26 22:41:10 -0700
+Processing by ReportsController#custom_headers as PDF
+  Rendering reports/custom.pdf.prawn
+  Rendered reports/custom.pdf.prawn (Duration: 1.5ms | Allocations: 1597)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 1841)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------------
+NavigationTest: test_Respects_the_'disposition'_option_alone
+------------------------------------------------------------
+Started GET "/reports/custom_disposition.pdf" for 127.0.0.1 at 2021-05-26 22:41:10 -0700
+Processing by ReportsController#custom_disposition as PDF
+  Rendering reports/custom_disposition.pdf.prawn
+  Rendered reports/custom_disposition.pdf.prawn (Duration: 2.0ms | Allocations: 1632)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.0ms | Allocations: 2014)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+NavigationTest: test_Renders_html_action
+----------------------------------------
+Started GET "/reports/sample" for 127.0.0.1 at 2021-05-26 22:41:10 -0700
+Processing by ReportsController#sample as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering reports/sample.html.erb within layouts/application
+  Rendered reports/sample.html.erb within layouts/application (Duration: 0.4ms | Allocations: 70)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 3235)
+Completed 200 OK in 8ms (Views: 7.9ms | ActiveRecord: 0.0ms | Allocations: 3998)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------------------------------------
+NavigationTest: test_Renders_table_pdf_action_using_auto-required_plugin_Prawn-Table
+------------------------------------------------------------------------------------
+Started GET "/reports/table?format=pdf" for 127.0.0.1 at 2021-05-26 22:41:10 -0700
+Processing by ReportsController#table as PDF
+  Rendering reports/table.pdf.prawn
+  Rendered reports/table.pdf.prawn (Duration: 13.2ms | Allocations: 10706)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.0ms | Allocations: 11097)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------
+NavigationTest: test_Registers_:pdf_mime_type
+---------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------
+PrawnRailsTest: test_matches_.PDF_extension_regardless_of_case
+--------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+PrawnRailsTest: test_text_can_take_non_strings
+----------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------
+NavigationTest: test_Renders_pdf_to_string
+------------------------------------------
+  Rendering reports/sample.pdf.prawn
+  Rendered reports/sample.pdf.prawn (Duration: 21.3ms | Allocations: 15911)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------------------------
+NavigationTest: test_Respects_both_options_on_'prawn-document'_together
+-----------------------------------------------------------------------
+Started GET "/reports/custom.pdf" for 127.0.0.1 at 2021-05-26 22:44:19 -0700
+Processing by ReportsController#custom as PDF
+  Rendering reports/custom.pdf.prawn
+  Rendered reports/custom.pdf.prawn (Duration: 2.3ms | Allocations: 1669)
+Completed 200 OK in 7ms (Views: 3.8ms | ActiveRecord: 0.0ms | Allocations: 3365)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------
+NavigationTest: test_render_to_string_in_mailer
+-----------------------------------------------
+  Rendering reports/sample.pdf.prawn
+  Rendered reports/sample.pdf.prawn (Duration: 12.4ms | Allocations: 12629)
+  Rendering reports_mailer/send_report.html.erb
+  Rendered reports_mailer/send_report.html.erb (Duration: 0.4ms | Allocations: 79)
+ReportsMailer#send_report: processed outbound mail in 22.5ms
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------------------------------------
+NavigationTest: test_Renders_table_pdf_action_using_auto-required_plugin_Prawn-Table
+------------------------------------------------------------------------------------
+Started GET "/reports/table?format=pdf" for 127.0.0.1 at 2021-05-26 22:44:19 -0700
+Processing by ReportsController#table as PDF
+  Rendering reports/table.pdf.prawn
+  Rendered reports/table.pdf.prawn (Duration: 9.0ms | Allocations: 10707)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.0ms | Allocations: 11098)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------------
+NavigationTest: test_Respects_the_'disposition'_option_alone
+------------------------------------------------------------
+Started GET "/reports/custom_disposition.pdf" for 127.0.0.1 at 2021-05-26 22:44:19 -0700
+Processing by ReportsController#custom_disposition as PDF
+  Rendering reports/custom_disposition.pdf.prawn
+  Rendered reports/custom_disposition.pdf.prawn (Duration: 2.2ms | Allocations: 1636)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms | Allocations: 2019)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------------------
+NavigationTest: test_Sets_file_name_from_'@filename'_when_present
+-----------------------------------------------------------------
+Started GET "/reports/ivar_filename.pdf" for 127.0.0.1 at 2021-05-26 22:44:19 -0700
+Processing by ReportsController#ivar_filename as PDF
+  Rendering reports/custom.pdf.prawn
+  Rendered reports/custom.pdf.prawn (Duration: 1.6ms | Allocations: 1599)
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 1841)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------------------
+NavigationTest: test_Maintains_existing_'Content-Disposition'_header
+--------------------------------------------------------------------
+Started GET "/reports/custom_headers.pdf" for 127.0.0.1 at 2021-05-26 22:44:19 -0700
+Processing by ReportsController#custom_headers as PDF
+  Rendering reports/custom.pdf.prawn
+  Rendered reports/custom.pdf.prawn (Duration: 1.6ms | Allocations: 1597)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 1840)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------
+NavigationTest: test_Registers_:pdf_mime_type
+---------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+NavigationTest: test_Renders_html_action
+----------------------------------------
+Started GET "/reports/sample" for 127.0.0.1 at 2021-05-26 22:44:19 -0700
+Processing by ReportsController#sample as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering reports/sample.html.erb within layouts/application
+  Rendered reports/sample.html.erb within layouts/application (Duration: 0.5ms | Allocations: 70)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 3235)
+Completed 200 OK in 10ms (Views: 9.9ms | ActiveRecord: 0.0ms | Allocations: 3997)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------
+NavigationTest: test_Respects_the_'filename'_option_alone
+---------------------------------------------------------
+Started GET "/reports/custom_filename.pdf" for 127.0.0.1 at 2021-05-26 22:44:19 -0700
+Processing by ReportsController#custom_filename as PDF
+  Rendering reports/custom_filename.pdf.prawn
+  Rendered reports/custom_filename.pdf.prawn (Duration: 2.0ms | Allocations: 1660)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms | Allocations: 2045)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------
+NavigationTest: test_Registers_:prawn_template_handler
+------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------
+NavigationTest: test_Renders_sample_pdf_action
+----------------------------------------------
+Started GET "/reports/sample?format=pdf" for 127.0.0.1 at 2021-05-26 22:44:19 -0700
+Processing by ReportsController#sample as PDF
+  Rendering reports/sample.pdf.prawn
+  Rendered reports/sample.pdf.prawn (Duration: 13.6ms | Allocations: 12633)
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.0ms | Allocations: 13027)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m

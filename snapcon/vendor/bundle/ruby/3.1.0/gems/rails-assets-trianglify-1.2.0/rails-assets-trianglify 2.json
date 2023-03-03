@@ -1,0 +1,32 @@
+{
+  "name": "rails-assets-trianglify",
+  "downloads": null,
+  "version": "1.2.0",
+  "version_downloads": null,
+  "platform": "ruby",
+  "authors": "rails-assets.org",
+  "info": "Trianglify is a javascript library for generating colorful triangle meshes that can be used as SVG images and CSS backgrounds.",
+  
+  "licenses": "GPLv3",
+  
+  "metadata": {
+
+  },
+  "sha": null,
+  "project_uri": "https://github.com/qrohlf/trianglify",
+  "gem_uri": null,
+  "homepage_uri": "https://github.com/qrohlf/trianglify",
+  "wiki_uri": null,
+  "documentation_uri": null,
+  "mailing_list_uri": null,
+  "source_code_uri": "https://github.com/qrohlf/trianglify",
+  "bug_tracker_uri": null,
+  "dependencies": {
+    "development": [
+    
+    ],
+    "runtime": [
+
+    ]
+  }
+}

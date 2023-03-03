@@ -1,0 +1,5 @@
+# pack-refs with: peeled fully-peeled sorted 
+96dbfcb55bf7bef5a33f83a4919879c891af367c refs/heads/master
+9bcd4084bf1e8b646c445808800547b1ef2f19fe refs/heads/revert-1-master
+541737480802f90a92ddb92c5799a6da5ca9e7bc refs/tags/v1.0.0
+^439dda9e9b9ccab38519960940ec1013c3ddc6fe

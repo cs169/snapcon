@@ -1,0 +1,13 @@
+current directory: /Users/justinpau/Desktop/snapcon/snapcon/vendor/bundle/ruby/3.1.0/gems/json-2.6.2/ext/json
+/Users/justinpau/.rvm/rubies/ruby-3.1.3/bin/ruby -I /Users/justinpau/.rvm/rubies/ruby-3.1.3/lib/ruby/3.1.0 extconf.rb
+creating Makefile
+
+current directory: /Users/justinpau/Desktop/snapcon/snapcon/vendor/bundle/ruby/3.1.0/gems/json-2.6.2/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20230301-3425-ywji9u sitelibdir\=./.gem.20230301-3425-ywji9u clean
+
+current directory: /Users/justinpau/Desktop/snapcon/snapcon/vendor/bundle/ruby/3.1.0/gems/json-2.6.2/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20230301-3425-ywji9u sitelibdir\=./.gem.20230301-3425-ywji9u
+make: Nothing to be done for `all'.
+
+current directory: /Users/justinpau/Desktop/snapcon/snapcon/vendor/bundle/ruby/3.1.0/gems/json-2.6.2/ext/json
+make DESTDIR\= sitearchdir\=./.gem.20230301-3425-ywji9u sitelibdir\=./.gem.20230301-3425-ywji9u install

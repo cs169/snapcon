@@ -1,0 +1,39 @@
+{
+  "name": "rails-assets-bootstrap-markdown",
+  "downloads": null,
+  "version": "2.10.0",
+  "version_downloads": null,
+  "platform": "ruby",
+  "authors": "rails-assets.org",
+  "info": "",
+  
+  "licenses": "Apache-2.0",
+  
+  "metadata": {
+
+  },
+  "sha": null,
+  "project_uri": "https://github.com/toopay/bootstrap-markdown",
+  "gem_uri": null,
+  "homepage_uri": "https://github.com/toopay/bootstrap-markdown",
+  "wiki_uri": null,
+  "documentation_uri": null,
+  "mailing_list_uri": null,
+  "source_code_uri": "https://github.com/toopay/bootstrap-markdown",
+  "bug_tracker_uri": null,
+  "dependencies": {
+    "development": [
+    
+    
+    {
+      "name": "rails-assets-bootstrap",
+      "requirements": "~> 3"
+    },
+    
+    
+    ],
+    "runtime": [
+
+    ]
+  }
+}

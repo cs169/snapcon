@@ -1,0 +1,30 @@
+{
+  "name": "rails-assets-waypoints",
+  "downloads": null,
+  "version": "4.0.1",
+  "version_downloads": null,
+  "platform": "ruby",
+  "authors": "rails-assets.org",
+  "info": "Easily execute a function when you scroll to an element.",
+  
+  "metadata": {
+
+  },
+  "sha": null,
+  "project_uri": "https://github.com/imakewebthings/waypoints",
+  "gem_uri": null,
+  "homepage_uri": "https://github.com/imakewebthings/waypoints",
+  "wiki_uri": null,
+  "documentation_uri": null,
+  "mailing_list_uri": null,
+  "source_code_uri": "https://github.com/imakewebthings/waypoints",
+  "bug_tracker_uri": null,
+  "dependencies": {
+    "development": [
+    
+    ],
+    "runtime": [
+
+    ]
+  }
+}

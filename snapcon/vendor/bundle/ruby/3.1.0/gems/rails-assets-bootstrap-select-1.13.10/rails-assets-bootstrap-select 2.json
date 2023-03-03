@@ -1,0 +1,46 @@
+{
+  "name": "rails-assets-bootstrap-select",
+  "downloads": null,
+  "version": "1.13.10",
+  "version_downloads": null,
+  "platform": "ruby",
+  "authors": "rails-assets.org",
+  "info": "The jQuery plugin that brings select elements into the 21st century with intuitive multiselection, searching, and much more.",
+  
+  "licenses": "MIT",
+  
+  "metadata": {
+
+  },
+  "sha": null,
+  "project_uri": "https://developer.snapappointments.com/bootstrap-select",
+  "gem_uri": null,
+  "homepage_uri": "https://developer.snapappointments.com/bootstrap-select",
+  "wiki_uri": null,
+  "documentation_uri": null,
+  "mailing_list_uri": null,
+  "source_code_uri": "https://developer.snapappointments.com/bootstrap-select",
+  "bug_tracker_uri": null,
+  "dependencies": {
+    "development": [
+    
+    
+    {
+      "name": "rails-assets-jquery",
+      "requirements": ">= 1.9.1", "< 4"
+    },
+    
+    
+    
+    {
+      "name": "rails-assets-bootstrap",
+      "requirements": ">= 3.0.0"
+    },
+    
+    
+    ],
+    "runtime": [
+
+    ]
+  }
+}
