@@ -110,76 +110,13 @@ class TicketPurchase < ApplicationRecord
       errors.add(:quantity, 'cannot be greater than one for registration tickets.')
     end
   end
-end
 
-private
-
-def set_week
-  self.week = created_at.strftime('%W')
-  save!
-end
-
-def get_values(booth = nil)
-  h = {
-    'name'                   => user.name,
-    'conference'             => conference.title,
-    'ticket_quantity'        => quantity.to_s,
-    'ticket_title'           => ticket.title,
-    'ticket_purchase_id'     => ticket.id,
-    'conference_start_date'  => conference.start_date,
-    'conference_end_date'    => conference.end_date,
-    'registrationlink'       => Rails.application.routes.url_helpers.conference_conference_registration_url(
-      conference.short_title, host: ENV.fetch('OSEM_HOSTNAME', 'localhost:3000')
-    ),
-    'conference_splash_link' => Rails.application.routes.url_helpers.conference_url(
-      conference.short_title, host: ENV.fetch('OSEM_HOSTNAME', 'localhost:3000')
-    ),
-
-    'schedule_link'          => Rails.application.routes.url_helpers.conference_schedule_url(
-      conference.short_title, host: ENV.fetch('OSEM_HOSTNAME', 'localhost:3000')
-    )
-  }
-
-  if conference.program.cfp
-    h['cfp_start_date'] = conference.program.cfp.start_date
-    h['cfp_end_date'] = conference.program.cfp.end_date
-  else
-    h['cfp_start_date'] = 'Unknown'
-    h['cfp_end_date'] = 'Unknown'
+  def generate_confirmation_mail(event_template)
+    parser = EmailTemplateParser.new(conference, user)
+    values = parser.retrieve_values(nil, nil, quantity, ticket)
+    parser.parse_template(event_template, values)
   end
-
-  if conference.venue
-    h['venue'] = conference.venue.name
-    h['venue_address'] = conference.venue.address
-  else
-    h['venue'] = 'Unknown'
-    h['venue_address'] = 'Unknown'
-  end
-
-  if conference.registration_period
-    h['registration_start_date'] = conference.registration_period.start_date
-    h['registration_end_date'] = conference.registration_period.end_date
-  end
-
-  h
 end
-
-def generate_confirmation_mail(event_template)
-  parse_template(event_template, get_values)
-end
-
-def parse_template(text, values)
-  values.each do |key, value|
-    if value.is_a?(Date)
-      text = text.gsub "{#{key}}", value.strftime('%Y-%m-%d') if text.present?
-    else
-      text = text.gsub "{#{key}}", value unless text.blank? || value.blank?
-    end
-  end
-  text
-end
-
-public :generate_confirmation_mail
 
 private
 
