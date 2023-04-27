@@ -6,7 +6,7 @@ describe CurrencyConversion do
   let!(:conference) { create(:conference, title: 'ExampleCon') }
   let!(:admin) { create(:admin) }
 
-  context 'as a organizer' do
+  context 'as an admin' do
     before do
       sign_in admin
     end
@@ -34,13 +34,14 @@ describe CurrencyConversion do
     end
 
     it 'Deletes Currency Conversion', feature: true, js: true do
+      conference.currency_conversions << create(:currency_conversion)
       visit admin_conference_currency_conversions_path(conference.short_title)
-
       # Remove currency conversion
-      within('table#currency_conversions tr:nth-of-type(1)') do
-        click_link 'Delete'
+      page.accept_alert do
+        within('table tr:nth-of-type(1)') do
+          click_link 'Delete'
+        end
       end
-      page.accept_alert
       page.find('#flash')
 
       # Validations
