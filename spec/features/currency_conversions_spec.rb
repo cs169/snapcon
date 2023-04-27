@@ -37,8 +37,8 @@ describe CurrencyConversion do
       visit admin_conference_currency_conversions_path(conference.short_title)
 
       # Remove currency conversion
-      within('table tr:first') do
-          click_link 'Delete'
+      within('table tr:nth-of-type(1)') do
+        click_link 'Delete'
       end
       page.accept_alert
       page.find('#flash')
@@ -47,6 +47,5 @@ describe CurrencyConversion do
       expect(flash).to eq('Difficulty level successfully deleted.')
       expect(page.assert_selector('tr', count: 0)).to be true
     end
-
   end
 end
