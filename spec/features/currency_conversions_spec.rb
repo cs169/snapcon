@@ -4,11 +4,11 @@ require 'spec_helper'
 
 describe CurrencyConversion do
   let!(:conference) { create(:conference, title: 'ExampleCon') }
-  let!(:organizer) { create(:organizer, resource: conference) }
+  let!(:admin) { create(:admin) }
 
   context 'as a organizer' do
     before do
-      sign_in organizer
+      sign_in admin
     end
 
     after do
@@ -19,11 +19,11 @@ describe CurrencyConversion do
       visit admin_conference_currency_conversions_path(conference.short_title)
       click_link 'Add Currency Conversion'
 
-      fill_in 'from_currency', with: 'USD'
-      fill_in 'to_currency', with: 'EUR'
-      fill_in 'rate', with: '0.89'
+      fill_in 'currency_conversion_from_currency', with: 'USD'
+      fill_in 'currency_conversion_to_currency', with: 'EUR'
+      fill_in 'currency_conversion_rate', with: '0.89'
 
-      click_button 'Create Currency Conversion'
+      click_button 'Create Currency conversion'
       page.find('#flash')
       expect(flash).to eq('Currency conversion was successfully created.')
       within('table#currency_conversions') do
