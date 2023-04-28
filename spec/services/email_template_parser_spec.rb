@@ -1,4 +1,4 @@
-require 'spec_helper'
+require './spec/spec_helper'
 
 describe EmailTemplateParser do
     let(:conference) { double("Conference", title: "Test Conference", short_title: "test-conf", start_date: Date.today, end_date: Date.today + 2.days, program: double("Program", cfp: double("Cfp", start_date: Date.today - 10.days, end_date: Date.today - 8.days))) }
