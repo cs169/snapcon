@@ -29,7 +29,7 @@ describe CurrencyConversion do
       within('table#currency_conversions') do
         expect(page.has_content?('USD')).to be true
         expect(page.has_content?('EUR')).to be true
-        expect(page.assert_selector('tr', count: 1)).to be true
+        expect(page.assert_selector('tbody tr', count: 1)).to be true
       end
     end
 
@@ -38,15 +38,17 @@ describe CurrencyConversion do
       visit admin_conference_currency_conversions_path(conference.short_title)
       # Remove currency conversion
       page.accept_alert do
-        within('table tr:nth-of-type(1)') do
+        within('table tbody tr:nth-of-type(1) td:nth-of-type(4)') do
           click_link 'Delete'
         end
       end
       page.find('#flash')
 
       # Validations
-      expect(flash).to eq('Difficulty level successfully deleted.')
-      expect(page.assert_selector('tr', count: 0)).to be true
+      expect(flash).to eq('Currency conversion was successfully deleted.')
+      within('table#currency_conversions') do
+        expect(page.assert_selector('tbody tr', count: 0)).to be true
+      end
     end
   end
 end
