@@ -130,6 +130,8 @@ Metrics/MethodLength:
 # Configuration parameters: CountComments, CountAsOne.
 Metrics/ModuleLength:
   Max: 158
+  Exclude:
+  - app/helpers/format_helper.rb
 
 # Offense count: 27
 # Configuration parameters: AllowedMethods, AllowedPatterns.

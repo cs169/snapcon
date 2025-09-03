@@ -167,7 +167,7 @@ module FormatHelper
       space_after_headers:          true,
       no_intra_emphasis:            false, # SNAPCON
       fenced_code_blocks:           true,
-      disable_indented_code_blocks: true,
+      disable_indented_code_blocks: true
     }
     render_options = {
       filter_html:     true,
@@ -198,7 +198,7 @@ module FormatHelper
     render_options = {
       filter_html:     escape_html,
       escape_html:     escape_html,
-      safe_links_only: false,
+      safe_links_only: false
     }
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(render_options), markdown_options)
     rendered = markdown.render(text)
