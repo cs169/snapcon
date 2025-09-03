@@ -198,7 +198,7 @@ module FormatHelper
     render_options = {
       filter_html:     escape_html,
       escape_html:     escape_html,
-      safe_links_only: false
+      safe_links_only: true
     }
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(render_options), markdown_options)
     rendered = markdown.render(text)
