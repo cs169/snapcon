@@ -1,4 +1,4 @@
-## Srping 2026 CS169L
+## Spring 2026 CS169L
 
 ## Local Fork
 [![Specs](https://github.com/cs169/snapcon/actions/workflows/spec.yml/badge.svg)](https://github.com/cs169/snapcon/actions/workflows/spec.yml)
