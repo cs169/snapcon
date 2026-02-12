@@ -1,4 +1,9 @@
-## Srping 2024 CS169L
+## Spring 2026 CS169L
+
+## Local Fork
+[![Specs](https://github.com/cs169/snapcon/actions/workflows/spec.yml/badge.svg)](https://github.com/cs169/snapcon/actions/workflows/spec.yml)
+
+## Golden Repo
 [![Specs](https://github.com/snap-cloud/snapcon/actions/workflows/spec.yml/badge.svg)](https://github.com/snap-cloud/snapcon/actions/workflows/spec.yml)
 [![Pivotal Tracker](doc/pivotal_tracker_logo.png)](https://www.pivotaltracker.com/n/projects/2487653)
 [![Maintainability](https://api.codeclimate.com/v1/badges/b7b0d559a03bf218663a/maintainability)](https://codeclimate.com/github/snap-cloud/snapcon/maintainability)
@@ -24,8 +29,5 @@ Please refer to our [installation guide](INSTALL.md).
 
 Please refer to our [contributing guide](CONTRIBUTING.md).
 
-hi chat
-
 ## Contact
-i
 GitHub issues are the primary way for communicating about specific proposed changes to this project. If you have other questions feel free to subscribe to the [opensuse-web@opensuse.org](http://lists.opensuse.org/opensuse-web/) mailinglist, all OSEM contributors are on that list! Additionally you can use #osem channel on [libera.chat IRC](https://libera.chat).
