@@ -1,4 +1,9 @@
-## Srping 2024 CS169L
+## Srping 2026 CS169L
+
+## Local Fork
+[![Specs](https://github.com/cs169/snapcon/actions/workflows/spec.yml/badge.svg)](https://github.com/cs169/snapcon/actions/workflows/spec.yml)
+
+## Golden Repo
 [![Specs](https://github.com/snap-cloud/snapcon/actions/workflows/spec.yml/badge.svg)](https://github.com/snap-cloud/snapcon/actions/workflows/spec.yml)
 [![Pivotal Tracker](doc/pivotal_tracker_logo.png)](https://www.pivotaltracker.com/n/projects/2487653)
 [![Maintainability](https://api.codeclimate.com/v1/badges/b7b0d559a03bf218663a/maintainability)](https://codeclimate.com/github/snap-cloud/snapcon/maintainability)
