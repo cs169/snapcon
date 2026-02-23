@@ -45,6 +45,7 @@ jobs:
           OSEM_DB_USER: postgres
           OSEM_DB_PASSWORD: mysecretpassword
       - name: Upload coverage to Codecov
+        if: always()
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
