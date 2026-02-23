@@ -1,7 +1,7 @@
 name: Upload coverage reports to Codecov
 on:
   push:
-    branches: [ main ]
+    branches: [ main, Badges ]
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [ main ]
@@ -14,7 +14,7 @@ jobs:
       - name: Set up Ruby latest
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 'head'
+          ruby-version: '3.3.8'
       - name: Install dependencies
         run: bundle install
       - name: Run tests and collect coverage
