@@ -255,6 +255,7 @@ GEM
     fastimage (2.3.0)
     feature (1.4.0)
     ffi (1.17.0-x64-mingw-ucrt)
+    ffi (1.17.0-x86_64-linux-gnu)
     font-awesome-sass (6.5.1)
       sassc (~> 2.0)
     geckodriver-helper (0.24.0)
@@ -383,6 +384,8 @@ GEM
       colorize (>= 0.8.1)
     nio4r (2.7.0)
     nokogiri (1.16.6-x64-mingw-ucrt)
+      racc (~> 1.4)
+    nokogiri (1.16.6-x86_64-linux)
       racc (~> 1.4)
     oauth2 (2.0.9)
       faraday (>= 0.17.3, < 3.0)
@@ -639,6 +642,7 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     sqlite3 (1.7.2-x64-mingw-ucrt)
+    sqlite3 (1.7.2-x86_64-linux)
     ssrf_filter (1.1.2)
     stripe (5.55.0)
     stripe-ruby-mock (3.1.0)
@@ -702,6 +706,7 @@ GEM
 
 PLATFORMS
   x64-mingw-ucrt
+  x86_64-linux
 
 DEPENDENCIES
   active_model_serializers
