@@ -33,13 +33,15 @@ jobs:
       - name: Install dependencies
         run: bundle install
       - name: Set up database
-        run: bundle exec rails db:schema:load
+        run: bundle exec rails db:create db:schema:load
         env:
+          RAILS_ENV: test
           OSEM_DB_USER: postgres
           OSEM_DB_PASSWORD: mysecretpassword
       - name: Run tests and collect coverage
         run: bundle exec rake
         env:
+          RAILS_ENV: test
           OSEM_DB_USER: postgres
           OSEM_DB_PASSWORD: mysecretpassword
       - name: Upload coverage to Codecov
