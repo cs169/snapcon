@@ -1,14 +1,4 @@
-## Spring 2026 CS169L Snap!Con
-
-## Spring 2026 CS169L Repository
-[![Specs](https://github.com/cs169/snapcon/actions/workflows/spec.yml/badge.svg)](https://github.com/cs169/snapcon/actions/workflows/spec.yml)
-[![codecov](https://codecov.io/gh/cs169/snapcon/graph/badge.svg?token=kw6lq9NkSW)](https://codecov.io/gh/cs169/snapcon)
-
-## SnapCloud Base Repository
-
-# [Snap!Con](https://snapcon.org)
-Forked From:
-## Open Source Event Manager - [osem.io](https://osem.io)
+# [Snap!Con](https://snapcon.org) Base Repository
 [![Specs](https://github.com/snap-cloud/snapcon/actions/workflows/spec.yml/badge.svg)](https://github.com/snap-cloud/snapcon/actions/workflows/spec.yml)
 [![Maintainability](https://qlty.sh/gh/snap-cloud/projects/snapcon/maintainability.svg)](https://qlty.sh/gh/snap-cloud/projects/snapcon)
 [![Code Coverage](https://qlty.sh/gh/snap-cloud/projects/snapcon/coverage.svg)](https://qlty.sh/gh/snap-cloud/projects/snapcon)
@@ -16,6 +6,13 @@ Forked From:
 <a href="https://heroku.com/deploy?template=https://github.com/snap-cloud/snapcon/tree/v1.0">
   <img src="https://www.herokucdn.com/deploy/button.svg" height="20px" alt="Deploy">
 </a>
+
+## Spring 2026 CS169L Repository
+[![Specs](https://github.com/cs169/snapcon/actions/workflows/spec.yml/badge.svg)](https://github.com/cs169/snapcon/actions/workflows/spec.yml)
+[![codecov](https://codecov.io/gh/cs169/snapcon/graph/badge.svg?token=kw6lq9NkSW)](https://codecov.io/gh/cs169/snapcon)
+
+Forked From:
+## Open Source Event Manager - [osem.io](https://osem.io)
 
 ![OSEM Logo](doc/osem-logo.png)
 
