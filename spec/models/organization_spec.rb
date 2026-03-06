@@ -17,14 +17,12 @@ describe Organization do
 
   describe 'validation' do
     it 'is not valid without a name' do
-      pending 'TODO-SNAPCON: Investigate validation test failure'
       expect(subject).to validate_presence_of(:name)
     end
   end
 
   describe 'associations' do
     it 'has many conferences with dependent destroy' do
-      pending 'TODO-SNAPCON: Investigate association test failure'
       expect(subject).to have_many(:conferences).dependent(:destroy)
     end
   end
