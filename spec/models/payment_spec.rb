@@ -66,44 +66,46 @@ describe Payment do
                url: 'https://checkout.stripe.com/pay/cs_test_session_123')
       end
 
-      before do
-        allow(Stripe::Checkout::Session).to receive(:create).and_return(mock_session)
-        allow(payment).to receive(:update).and_return(true)
-      end
-
       it 'creates a Stripe Checkout Session with line items' do
+        create_args = nil
+        allow(Stripe::Checkout::Session).to receive(:create) do |**args|
+          create_args = args
+          mock_session
+        end
+
         result = payment.create_checkout_session(
           success_url: 'https://example.com/success?session_id={CHECKOUT_SESSION_ID}',
           cancel_url:  'https://example.com/cancel'
         )
 
         expect(result).to eq(mock_session)
-        expect(Stripe::Checkout::Session).to have_received(:create).with(
+        expect(create_args).to include(
+          payment_method_types: ['card'],
+          mode:                 'payment',
+          customer_email:       user.email
+        )
+        expect(create_args[:line_items]).to contain_exactly(
           hash_including(
-            payment_method_types: ['card'],
-            mode:                 'payment',
-            customer_email:       user.email,
-            line_items:           a_collection_containing_exactly(
-              hash_including(
-                price_data: hash_including(
-                  currency:     'usd',
-                  product_data: hash_including(name: ticket_1.title),
-                  unit_amount:  1000
-                ),
-                quantity:   2
-              )
-            )
+            price_data: hash_including(
+              currency:     'usd',
+              product_data: hash_including(name: ticket_1.title),
+              unit_amount:  1000
+            ),
+            quantity:   2
           )
         )
       end
 
       it 'stores the session id on the payment' do
+        allow(Stripe::Checkout::Session).to receive(:create).and_return(mock_session)
+
         payment.create_checkout_session(
           success_url: 'https://example.com/success',
           cancel_url:  'https://example.com/cancel'
         )
 
-        expect(payment).to have_received(:update).with(stripe_session_id: 'cs_test_session_123')
+        payment.reload
+        expect(payment.stripe_session_id).to eq('cs_test_session_123')
       end
     end
 
