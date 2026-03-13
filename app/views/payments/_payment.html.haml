@@ -20,5 +20,6 @@
             = humanized_money_with_symbol ticket.purchase_price * ticket.quantity
 = form_tag conference_payments_path(@conference.short_title), method: :post do
   = hidden_field_tag :has_registration_ticket, @has_registration_ticket
-  = submit_tag "Pay #{humanized_money_with_symbol @total_amount_to_pay}", class: 'btn btn-success btn-lg'
-  = link_to 'Edit Purchase', conference_tickets_path(@conference.short_title), class: 'btn btn-default'
+  .payment-actions
+    = link_to 'Edit Purchase', conference_tickets_path(@conference.short_title), class: 'btn btn-default'
+    = submit_tag "Pay #{humanized_money_with_symbol @total_amount_to_pay}", class: 'btn btn-success'
