@@ -1,7 +1,6 @@
 .payment-actions {
   margin-top: 15px;
-
-  .btn-success {
-    float: right;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
