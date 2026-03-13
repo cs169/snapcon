@@ -1,23 +1,18 @@
-.div
-  .col-md-12.table-responsive
-    %table.table.table-hover.table-striped
-      %thead
-        %tr
-          %th Ticket
-          %th Quantity
-          %th Price
-          %th Total
-      %tbody
+.table-responsive
+  %table.table.table-hover.table-striped
+    %thead
+      %tr
+        %th Ticket
+        %th Quantity
+        %th Price
+        %th Total
+    %tbody
       - @unpaid_ticket_purchases.each do |ticket|
         %tr
-          %td
-            = ticket.title
-          %td
-            = ticket.quantity
-          %td
-            = humanized_money_with_symbol ticket.purchase_price
-          %td
-            = humanized_money_with_symbol ticket.purchase_price * ticket.quantity
+          %td= ticket.title
+          %td= ticket.quantity
+          %td= humanized_money_with_symbol ticket.purchase_price
+          %td= humanized_money_with_symbol ticket.purchase_price * ticket.quantity
 = form_tag conference_payments_path(@conference.short_title), method: :post do
   = hidden_field_tag :has_registration_ticket, @has_registration_ticket
   .payment-actions
