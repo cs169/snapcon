@@ -139,6 +139,7 @@ Osem::Application.routes.draw do
       resources :roles, except: %i[new create] do
         member do
           post :toggle_user
+          post :toggle_comment_notifications
         end
       end
 
