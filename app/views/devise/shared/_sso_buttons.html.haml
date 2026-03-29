@@ -2,11 +2,11 @@
 - unless sso_providers.empty?
   .sso-buttons
     - if sso_providers.include?(:google)
-      = link_to user_google_omniauth_authorize_path, class: 'btn btn-default btn-lg btn-block sso-btn', method: :post do
+      = button_to user_google_omniauth_authorize_path, class: 'btn btn-default btn-lg btn-block sso-btn' do
         %i.fa-brands.fa-google
         Sign in with Google
     - if sso_providers.include?(:discourse)
-      = link_to user_discourse_omniauth_authorize_path, class: 'btn btn-default btn-lg btn-block sso-btn', method: :post do
+      = button_to user_discourse_omniauth_authorize_path, class: 'btn btn-default btn-lg btn-block sso-btn' do
         %span
           Sign in with Snap
           %em> !
