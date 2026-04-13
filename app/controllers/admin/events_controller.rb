@@ -115,6 +115,15 @@ module Admin
       @superevents = @program.events.where(superevent: true)
     end
 
+    def tentative_accept
+      if request.patch?
+        @event.committee_review = params.dig(:event, :committee_review)
+        send_mail = @event.program.conference.email_settings.send_on_tentative_accepted
+        subject = @event.program.conference.email_settings.tentative_accepted_subject.blank?
+        update_state(:tentatively_accept, 'Event tentatively accepted!', true, subject, send_mail)
+      end
+    end
+
     def accept
       send_mail = @event.program.conference.email_settings.send_on_accepted
       subject = @event.program.conference.email_settings.accepted_subject.blank?

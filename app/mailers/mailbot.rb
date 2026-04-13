@@ -54,6 +54,15 @@ class Mailbot < ApplicationMailer
     mail(subject: @conference.email_settings.accepted_subject, cc: @speakers)
   end
 
+  def tentative_acceptance_mail(event)
+    @user = event.submitter
+    @conference = event.program.conference
+    @speakers = event.speakers.map(&:email)
+    @email_body = @conference.email_settings.generate_event_mail(event, @conference.email_settings.tentative_accepted_body)
+
+    mail(subject: @conference.email_settings.tentative_accepted_subject, cc: @speakers)
+  end
+
   def submitted_proposal_mail(event)
     @user = event.submitter
     @speakers = event.speakers.map(&:email)

@@ -1,0 +1,18 @@
+%h2 Tentative acceptance
+%p Use this page to record committee feedback and send a tentative acceptance email to the submitter.
+- if @event.program.conference.email_settings.send_on_tentative_accepted
+  .alert.alert-success
+    Email sending is enabled for tentative acceptance.
+- else
+  .alert.alert-warning
+    Email sending is currently disabled for tentative acceptance. The event will still move to tentatively accepted state.
+
+= form_with url: tentative_accept_admin_conference_program_event_path(@conference.short_title, @event), method: :patch, local: true do |f|
+  .form-group
+    = f.label :committee_review, 'Committee feedback'
+    = f.text_area :committee_review, class: 'form-control', rows: 10
+    %p.help-block This text will be included in the template variable {committee_review}.
+
+  .form-group
+    = f.submit 'Send tentative acceptance email', class: 'btn btn-primary'
+    = link_to 'Cancel', admin_conference_program_event_path(@conference.short_title, @event), class: 'btn btn-default'
