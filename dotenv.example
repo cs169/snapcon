@@ -19,7 +19,9 @@
 # OSEM_DB_PORT=3306
 
 # The user to access the database with
-# OSEM_DB_USER=root
+OSEM_DB_USER=ethan
+OSEM_DB_PASSWORD=
+RAILS_ENV=development
 
 # The password to access the database with
 # OSEM_DB_PASSWORD=mysecretpassword
