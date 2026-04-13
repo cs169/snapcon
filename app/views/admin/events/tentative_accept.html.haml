@@ -9,6 +9,16 @@
 
 = form_with url: tentative_accept_admin_conference_program_event_path(@conference.short_title, @event), method: :patch, local: true do |f|
   .form-group
+    = f.label :tentative_accepted_subject, 'Email subject'
+    = f.text_field :tentative_accepted_subject, value: @tentative_subject, class: 'form-control'
+    %p.help-block This subject will be used for the tentative acceptance email.
+
+  .form-group
+    = f.label :tentative_accepted_body, 'Email body'
+    = f.text_area :tentative_accepted_body, value: @tentative_body, class: 'form-control', rows: 10
+    %p.help-block Use {committee_review} to include the requested changes.
+
+  .form-group
     = f.label :committee_review, 'Committee feedback'
     = f.text_area :committee_review, class: 'form-control', rows: 10
     %p.help-block This text will be included in the template variable {committee_review}.

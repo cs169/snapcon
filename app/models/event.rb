@@ -256,7 +256,7 @@ class Event < ApplicationRecord
        program.conference.email_settings.tentative_accepted_body &&
        program.conference.email_settings.tentative_accepted_subject &&
        options[:send_mail].present?
-      Mailbot.tentative_acceptance_mail(self).deliver_later
+      Mailbot.tentative_acceptance_mail(self, subject: options[:subject], body: options[:body]).deliver_later
     end
   end
 

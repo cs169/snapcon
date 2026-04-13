@@ -116,10 +116,31 @@ module Admin
     end
 
     def tentative_accept
+      @conference = @event.program.conference
+      email_settings = @conference.email_settings
+      @tentative_subject = email_settings.tentative_accepted_subject.presence || 'Your submission has been tentatively accepted'
+      default_body = email_settings.tentative_accepted_body.presence || "Dear {name}\n\nWe are pleased to inform you that your submission {eventtitle} has been tentatively accepted for the conference {conference}.\n\nPlease see the requested changes below:\n\n{committee_review}\n\nIf you have questions, please let us know.\n\nBest wishes\n\n{conference} Team"
+      @tentative_body = EmailTemplateParser.parse_template(default_body, email_settings.get_values(@conference, @event.submitter, @event))
+
+      if request.patch?
         @event.committee_review = params.dig(:event, :committee_review)
-        send_mail = @event.program.conference.email_settings.send_on_tentative_accepted
-        subject = @event.program.conference.email_settings.tentative_accepted_subject.blank?
-        update_state(:tentatively_accept, 'Event tentatively accepted!', true, subject, send_mail)
+        send_mail = email_settings.send_on_tentative_accepted
+        subject_blank = email_settings.tentative_accepted_subject.blank?
+        subject_text = params.dig(:event, :tentative_accepted_subject).presence || @tentative_subject
+        body_text = params.dig(:event, :tentative_accepted_body).presence || @tentative_body
+
+        begin
+          @event.save!
+          @event.tentatively_accept(send_mail: send_mail, subject: subject_text, body: body_text)
+          @event.save!
+          flash[:notice] = 'Event tentatively accepted!'
+          redirect_back_or_to(admin_conference_program_events_path(conference_id: @conference.short_title)) && return
+        rescue ActiveRecord::RecordInvalid => e
+          flash.now[:error] = "Could not save tentative acceptance: #{e.record.errors.full_messages.join(', ')}"
+        rescue Transitions::InvalidTransition => e
+          flash.now[:error] = "Update state failed. #{e.message}"
+        end
+      end
     end
 
     def accept
