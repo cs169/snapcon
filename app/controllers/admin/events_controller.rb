@@ -134,7 +134,7 @@ module Admin
           @event.tentatively_accept(send_mail: send_mail, subject: subject_text, body: body_text)
           @event.save!
           flash[:notice] = 'Event tentatively accepted!'
-          redirect_back_or_to(admin_conference_program_events_path(conference_id: @conference.short_title)) && return
+          redirect_to admin_conference_program_events_path(conference_id: @conference.short_title) && return
         rescue ActiveRecord::RecordInvalid => e
           flash.now[:error] = "Could not save tentative acceptance: #{e.record.errors.full_messages.join(', ')}"
         rescue Transitions::InvalidTransition => e
