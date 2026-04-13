@@ -120,21 +120,22 @@ module Admin
       email_settings = @conference.email_settings
       @tentative_subject = email_settings.tentative_accepted_subject.presence || 'Your submission has been tentatively accepted'
       default_body = email_settings.tentative_accepted_body.presence || "Dear {name}\n\nWe are pleased to inform you that your submission {eventtitle} has been tentatively accepted for the conference {conference}.\n\nPlease see the requested changes below:\n\n{committee_review}\n\nIf you have questions, please let us know.\n\nBest wishes\n\n{conference} Team"
-      @tentative_body = EmailTemplateParser.parse_template(default_body, email_settings.get_values(@conference, @event.submitter, @event))
+      @missing_committee_review = @event.committee_review.blank?
+      @tentative_body = EmailTemplateParser.parse_template(default_body, email_settings.get_values(@conference, @event.submitter, @event)) unless @missing_committee_review
 
       if request.patch?
-        @event.committee_review = params.dig(:event, :committee_review)
+        if @missing_committee_review
+          flash.now[:alert] = 'Committee feedback is required before sending a tentative acceptance email.'
+          render :tentative_accept and return
+        end
+
         send_mail = email_settings.send_on_tentative_accepted
-        subject_blank = email_settings.tentative_accepted_subject.blank?
-        subject_text = params.dig(:event, :tentative_accepted_subject).presence || @tentative_subject
-        body_text = params.dig(:event, :tentative_accepted_body).presence || @tentative_body
 
         begin
-          @event.save!
-          @event.tentatively_accept(send_mail: send_mail, subject: subject_text, body: body_text)
+          @event.tentatively_accept(send_mail: send_mail, subject: @tentative_subject, body: @tentative_body)
           @event.save!
           flash[:notice] = 'Event tentatively accepted!'
-          redirect_to admin_conference_program_events_path(conference_id: @conference.short_title) && return
+          redirect_to admin_conference_program_events_path(conference_id: @conference.short_title) and return
         rescue ActiveRecord::RecordInvalid => e
           flash.now[:error] = "Could not save tentative acceptance: #{e.record.errors.full_messages.join(', ')}"
         rescue Transitions::InvalidTransition => e
