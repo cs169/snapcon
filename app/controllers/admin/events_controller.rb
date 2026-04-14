@@ -118,8 +118,8 @@ module Admin
     def tentative_accept
       @conference = @event.program.conference
       email_settings = @conference.email_settings
-      @tentative_subject = email_settings.tentative_accepted_subject.presence || 'Your submission has been tentatively accepted'
-      default_body = email_settings.tentative_accepted_body.presence || "Dear {name}\n\nWe are pleased to inform you that your submission {eventtitle} has been tentatively accepted for the conference {conference}, pending the following changes:\n\n{committee_review}\n\nPlease update your proposal accordingly and let us know when you are ready for final approval.\n\nIf you haven´t already registered for {conference}, please do so as soon as possible:\n{registrationlink}\n\nBest wishes\n\n{conference} Team"
+      @tentative_subject = email_settings.tentative_accepted_subject.presence
+      default_body = email_settings.tentative_accepted_body.presence
       @missing_committee_review = @event.committee_review.blank?
       @tentative_body = EmailTemplateParser.parse_template(default_body, email_settings.get_values(@conference, @event.submitter, @event)) unless @missing_committee_review
 
