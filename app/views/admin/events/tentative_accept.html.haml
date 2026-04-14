@@ -26,5 +26,5 @@
 
 = form_with url: tentative_accept_admin_conference_program_event_path(@conference.short_title, @event), method: :patch, local: true do |f|
   .form-group
-    = f.submit 'Send tentative acceptance email', class: 'btn btn-primary', disabled: @missing_committee_review
+    = f.submit 'Tentatively Accept', class: 'btn btn-primary', disabled: @missing_committee_review
     = link_to 'Cancel', admin_conference_program_event_path(@conference.short_title, @event), class: 'btn btn-default'

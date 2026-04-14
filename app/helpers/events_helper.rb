@@ -125,7 +125,7 @@ module EventsHelper
     end
     if event.transition_possible? :tentatively_accept
       options << [
-        'Tentatively accept',
+        'Tentatively Accept',
         tentative_accept_admin_conference_program_event_path(conference_id, event), :get
       ]
     end
