@@ -145,7 +145,7 @@ class Event < ApplicationRecord
       transitions to: :canceled, from: %i[unconfirmed confirmed]
     end
     event :reject do
-      transitions to: :rejected, from: [:new], on_transition: :process_rejection
+      transitions to: :rejected, from: %i[new tentatively_accepted], on_transition: :process_rejection
     end
   end
 

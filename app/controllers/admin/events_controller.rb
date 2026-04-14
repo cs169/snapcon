@@ -119,7 +119,7 @@ module Admin
       @conference = @event.program.conference
       email_settings = @conference.email_settings
       @tentative_subject = email_settings.tentative_accepted_subject.presence || 'Your submission has been tentatively accepted'
-      default_body = email_settings.tentative_accepted_body.presence || "Dear {name}\n\nWe are pleased to inform you that your submission {eventtitle} has been tentatively accepted for the conference {conference}.\n\nPlease see the requested changes below:\n\n{committee_review}\n\nIf you have questions, please let us know.\n\nBest wishes\n\n{conference} Team"
+      default_body = email_settings.tentative_accepted_body.presence || "Dear {name}\n\nWe are very pleased to inform you that your submission {eventtitle} has been accepted for the conference {conference}.\n\nThe public page of your submission can be found at:\n{proposalslink}\nIf you haven´t already registered for {conference}, please do as soon as possible:\n{registrationlink}\n\nFeel free to contact us with any questions or concerns.\n\nWe look forward to seeing you there.\n\nBest wishes\n\n{conference} Team"
       @missing_committee_review = @event.committee_review.blank?
       @tentative_body = EmailTemplateParser.parse_template(default_body, email_settings.get_values(@conference, @event.submitter, @event)) unless @missing_committee_review
 
