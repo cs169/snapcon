@@ -332,6 +332,8 @@ ActiveRecord::Schema[7.0].define(version: 2026_03_20_100000) do
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
     t.string "currency"
+    t.string "stripe_session_id"
+    t.index ["stripe_session_id"], name: "index_payments_on_stripe_session_id", unique: true
   end
 
   create_table "physical_tickets", force: :cascade do |t|
