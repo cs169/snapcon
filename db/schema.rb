@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2026_03_05_000000) do
+ActiveRecord::Schema[7.0].define(version: 2026_03_20_100000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
@@ -640,6 +640,7 @@ ActiveRecord::Schema[7.0].define(version: 2026_03_05_000000) do
   create_table "users_roles", force: :cascade do |t|
     t.integer "role_id"
     t.integer "user_id"
+    t.boolean "email_notifications", default: true, null: false
     t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
   end
 
