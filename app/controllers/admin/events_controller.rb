@@ -116,7 +116,6 @@ module Admin
     end
 
     def preview_tentative_accept
-      @conference = @event.program.conference
       email_settings = @conference.email_settings
       @tentative_subject = email_settings.tentative_accepted_subject.presence
       default_body = email_settings.tentative_accepted_body.presence
@@ -126,7 +125,6 @@ module Admin
     end
 
     def tentative_accept
-      @conference = @event.program.conference
       email_settings = @conference.email_settings
 
       if @event.committee_review.blank?
