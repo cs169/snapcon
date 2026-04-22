@@ -115,32 +115,44 @@ module Admin
       @superevents = @program.events.where(superevent: true)
     end
 
-    def tentative_accept
+    def preview_tentative_accept
       @conference = @event.program.conference
       email_settings = @conference.email_settings
       @tentative_subject = email_settings.tentative_accepted_subject.presence
       default_body = email_settings.tentative_accepted_body.presence
       @missing_committee_review = @event.committee_review.blank?
       @tentative_body = EmailTemplateParser.parse_template(default_body, email_settings.get_values(@conference, @event.submitter, @event)) unless @missing_committee_review
+    end
 
-      if request.patch?
-        if @missing_committee_review
-          flash.now[:alert] = 'Committee feedback is required before sending a tentative acceptance email.'
-          render :tentative_accept and return
-        end
+    def tentative_accept
+      @conference = @event.program.conference
+      email_settings = @conference.email_settings
 
-        send_mail = email_settings.send_on_tentative_accepted
+      if @event.committee_review.blank?
+        flash.now[:alert] = 'Committee feedback is required before sending a tentative acceptance email.'
+        @tentative_subject = email_settings.tentative_accepted_subject.presence
+        default_body = email_settings.tentative_accepted_body.presence
+        @missing_committee_review = true
+        render :tentative_accept and return
+      end
 
-        begin
-          @event.tentatively_accept(send_mail: send_mail, subject: @tentative_subject, body: @tentative_body)
-          @event.save!
-          flash[:notice] = 'Event tentatively accepted!'
-          redirect_to admin_conference_program_events_path(conference_id: @conference.short_title) and return
-        rescue ActiveRecord::RecordInvalid => e
-          flash.now[:error] = "Could not save tentative acceptance: #{e.record.errors.full_messages.join(', ')}"
-        rescue Transitions::InvalidTransition => e
-          flash.now[:error] = "Update state failed. #{e.message}"
-        end
+      @tentative_subject = email_settings.tentative_accepted_subject.presence
+      default_body = email_settings.tentative_accepted_body.presence
+      @missing_committee_review = false
+      @tentative_body = EmailTemplateParser.parse_template(default_body, email_settings.get_values(@conference, @event.submitter, @event))
+      send_mail = email_settings.send_on_tentative_accepted
+
+      begin
+        @event.tentatively_accept(send_mail: send_mail, subject: @tentative_subject, body: @tentative_body)
+        @event.save!
+        flash[:notice] = 'Event tentatively accepted!'
+        redirect_to admin_conference_program_events_path(conference_id: @conference.short_title) and return
+      rescue ActiveRecord::RecordInvalid => e
+        flash.now[:error] = "Could not save tentative acceptance: #{e.record.errors.full_messages.join(', ')}"
+        render :tentative_accept
+      rescue Transitions::InvalidTransition => e
+        flash.now[:error] = "Update state failed. #{e.message}"
+        render :tentative_accept
       end
     end
 
