@@ -122,6 +122,7 @@ module Admin
       default_body = email_settings.tentative_accepted_body.presence
       @missing_committee_review = @event.committee_review.blank?
       @tentative_body = EmailTemplateParser.parse_template(default_body, email_settings.get_values(@conference, @event.submitter, @event)) unless @missing_committee_review
+      render :tentative_accept
     end
 
     def tentative_accept
