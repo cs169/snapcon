@@ -27,6 +27,17 @@ describe ConferencesController do
       end
     end
 
+    context 'when the conference has no splashpage' do
+      let(:conference_without_splash) { create(:conference) }
+      let!(:organizer) { create(:organizer, resource: conference_without_splash) }
+
+      it 'redirects organizers to admin splashpage setup (regression: redirect must not be skipped by Ruby parsing)' do
+        sign_in organizer
+        get :show, params: { id: conference_without_splash.short_title }
+        expect(response).to redirect_to(admin_conference_splashpage_path(conference_without_splash.short_title))
+      end
+    end
+
     context 'accessing conference via custom domain' do
       before do
         conference.update_attribute(:custom_domain, 'lvh.me')

@@ -28,7 +28,13 @@ class ConferencesController < ApplicationController
 
     @splashpage = @conference.splashpage
 
-    redirect_to admin_conference_splashpage_path(@conference.short_title) && return unless @splashpage.present?
+    # NOTE: do not write `redirect_to(...) && return unless ...` — Ruby parses that as
+    # `redirect_to((...) && return) unless ...`, which evaluates `return` before `redirect_to`
+    # when the splashpage is missing, skipping the redirect and rendering show with a nil splashpage.
+    unless @splashpage.present?
+      redirect_to admin_conference_splashpage_path(@conference.short_title)
+      return
+    end
 
     # User messages at the top of the page.
     @unpaid_tickets = current_user_has_unpaid_tickets?

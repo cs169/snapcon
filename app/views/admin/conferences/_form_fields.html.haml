@@ -23,10 +23,66 @@
     = f.label :description
     = f.text_area :description, rows: 5, data: { provide: 'markdown' }, class: 'form-control'
     .help-block= markdown_hint('Splash page content')
+    %a.btn.btn-link.control_label.template_help_link{ 'data-name' => 'conference_description_template_help' } Show available template variables
+    .template-help{ id: 'conference_description_template_help' }
+      %p
+        You can embed placeholders like
+        %code {conference}
+        which will be replaced on the public splash page using the current conference data.
+      %ul
+        %li
+          %code {conference}
+          (alias:
+          %code {conference_name}
+          ) — conference title
+        %li
+          %code {conference_short}
+          (alias:
+          %code {short_name}
+          ) — conference short title
+        %li
+          %code {start_date}
+          /
+          %code {end_date}
+          — conference dates (formatted as YYYY-MM-DD)
+        %li
+          %code {cfp_start_date}
+          /
+          %code {cfp_end_date}
+          — CFP for events dates (if configured)
+        %li
+          %code {cfp_deadline}
+          — alias for
+          %code {cfp_end_date}
+        %li
+          %code {venue}
+          — venue name (if configured)
+        %li
+          %code {venue_address}
+          — venue address (if configured)
+        %li
+          %code {registration_start_date}
+          /
+          %code {registration_end_date}
+          — registration period dates (if configured)
+        %li
+          %code {num_public_event_types}
+          — count of event types that allow public submission
+        %li
+          %code {timezone}
+          — conference timezone string
   .form-group
     = f.label :registered_attendees_message, 'Message for Registered Attendees'
     = f.text_area :registered_attendees_message, rows: 5, data: { provide: 'markdown' }, class: 'form-control'
     .help-block= markdown_hint('Splash page content')
+    %a.btn.btn-link.control_label.template_help_link{ 'data-name' => 'conference_registered_attendees_template_help' } Show available template variables
+    .template-help{ id: 'conference_registered_attendees_template_help' }
+      %p
+        Same placeholders as the conference description (for example
+        %code {conference}
+        and
+        %code {start_date}
+        ).
   .form-group
     = f.color_field :color, size: 6, class: 'form-control'
     %span.help-block

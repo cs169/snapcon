@@ -1,11 +1,11 @@
-- cache [conference, venue, '#splash#header'] do
-  #banner{ style: ("background-image: url(#{splashpage.banner_photo_url})" if splashpage.banner_photo_url) }
+- cache [conference, venue, splashpage, '#splash#header'] do
+  #banner{ style: ("background-image: url(#{splashpage.banner_photo_url})" if splashpage&.banner_photo_url) }
     .container
       .row
-        - picture_present = splashpage.banner_photo? || conference.picture?
+        - picture_present = splashpage&.banner_photo? || conference.picture?
         .col-md-6.col-md-offset-3{ id: (picture_present ? "header-image" : "header-no-image") }
           .row
-            - if conference.picture? && !splashpage.banner_photo?
+            - if conference.picture? && !splashpage&.banner_photo?
               .col-md-4
                 = image_tag(conference.picture_url,
                   class: 'img-responsive img-center',
