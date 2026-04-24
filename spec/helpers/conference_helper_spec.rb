@@ -84,6 +84,7 @@ describe ConferenceHelper, type: :helper do
       create(:conference, venue: create(:venue))
     end
     let!(:contact_for_venue_conf) { create(:contact, conference: conference_with_venue) }
+
     context 'when an event has a nil event_type' do
       it 'skips the event and adds no VEVENT to the calendar' do
         cal = Icalendar::Calendar.new

@@ -164,7 +164,7 @@ start_time: conference.start_date + conference.start_hour.hours, room: create(:r
 
     it 'returns conferences sorted by start date descending' do
       confs = visible_conference_links
-      expect(confs).to eq confs.sort_by { |c| c.start_date }.reverse
+      expect(confs).to eq confs.sort_by(&:start_date).reverse
     end
 
     it 'does not group by organization' do

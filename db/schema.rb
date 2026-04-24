@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2026_03_20_100000) do
+ActiveRecord::Schema[7.0].define(version: 2026_04_10_133000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
   enable_extension "plpgsql"
@@ -208,6 +208,9 @@ ActiveRecord::Schema[7.0].define(version: 2026_03_20_100000) do
     t.boolean "send_on_submitted_proposal", default: false
     t.string "submitted_proposal_subject"
     t.text "submitted_proposal_body"
+    t.boolean "send_on_tentative_accepted", default: false
+    t.string "tentative_accepted_subject"
+    t.text "tentative_accepted_body"
   end
 
   create_table "event_schedules", force: :cascade do |t|

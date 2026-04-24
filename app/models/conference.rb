@@ -906,7 +906,7 @@ class Conference < ApplicationRecord
       new_room_id = old_room_id ? room_id_map[old_room_id] : nil
       program.tracks.create!(
         t.attributes.slice('name', 'short_name', 'description', 'color', 'state', 'relevance', 'start_date', 'end_date', 'cfp_active').merge(
-          guid: SecureRandom.urlsafe_base64,
+          guid:    SecureRandom.urlsafe_base64,
           room_id: new_room_id
         )
       )

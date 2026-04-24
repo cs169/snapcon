@@ -672,7 +672,7 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    tzinfo-data (1.2025.3)
+    tzinfo-data (1.2026.1)
       tzinfo (>= 1.0.0)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
@@ -832,7 +832,7 @@ DEPENDENCIES
   whenever
 
 RUBY VERSION
-   ruby 3.3.8p144
+   ruby 3.3.10p183
 
 BUNDLED WITH
    2.5.6

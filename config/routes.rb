@@ -113,6 +113,8 @@ Osem::Application.routes.draw do
             get :registrations
             post :comment
             patch :accept
+            get :preview_tentative_accept
+            patch :tentative_accept
             patch :confirm
             patch :cancel
             patch :reject
