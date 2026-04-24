@@ -81,13 +81,13 @@ describe Conference do
       result = {
         DateTime.now.end_of_week =>
                                     {
-                                      confirmed:             0,
-                                      unconfirmed:           0,
-                                      new:                   0,
-                                      withdrawn:             0,
-                                      canceled:              0,
-                                      rejected:              0,
-                                      tentatively_accepted:  0
+                                      confirmed:            0,
+                                      unconfirmed:          0,
+                                      new:                  0,
+                                      withdrawn:            0,
+                                      canceled:             0,
+                                      rejected:             0,
+                                      tentatively_accepted: 0
                                     }
       }
 
