@@ -492,7 +492,7 @@ describe Admin::EventsController do
     end
   end
 
-  describe 'GET #tentative_accept' do
+  describe 'PATCH #tentative_accept' do
     let(:conference) { create(:conference) }
     let(:organizer) { create(:organizer, resource: conference) }
     let(:event) { create(:event, program: conference.program) }
@@ -506,7 +506,7 @@ describe Admin::EventsController do
     context 'without committee feedback' do
       before do
         event.update(committee_review: nil)
-        get :tentative_accept, params: { conference_id: conference.short_title, id: event.id }
+        patch :tentative_accept, params: { conference_id: conference.short_title, id: event.id }
       end
 
       it 'shows error message' do
@@ -534,18 +534,18 @@ describe Admin::EventsController do
 
       it 'changes event state to tentatively_accepted' do
         expect do
-          get :tentative_accept, params: { conference_id: conference.short_title, id: event.id }
+          patch :tentative_accept, params: { conference_id: conference.short_title, id: event.id }
           event.reload
         end.to change(event, :state).from('new').to('tentatively_accepted')
       end
 
       it 'shows success message' do
-        get :tentative_accept, params: { conference_id: conference.short_title, id: event.id }
+        patch :tentative_accept, params: { conference_id: conference.short_title, id: event.id }
         expect(flash[:notice]).to eq('Event tentatively accepted!')
       end
 
       it 'redirects to events index' do
-        get :tentative_accept, params: { conference_id: conference.short_title, id: event.id }
+        patch :tentative_accept, params: { conference_id: conference.short_title, id: event.id }
         expect(response).to redirect_to(admin_conference_program_events_path(conference.short_title))
       end
 
@@ -556,7 +556,7 @@ describe Admin::EventsController do
 
         it 'does not send an email' do
           expect do
-            get :tentative_accept, params: { conference_id: conference.short_title, id: event.id }
+            patch :tentative_accept, params: { conference_id: conference.short_title, id: event.id }
             sleep 0.1 # Sleep to ensure asynchronous operations have completed
           end.not_to change(ActionMailer::Base.deliveries, :count)
         end
@@ -566,7 +566,7 @@ describe Admin::EventsController do
     context 'with invalid transition' do
       before do
         event.update(state: 'confirmed', committee_review: 'Some feedback')
-        get :tentative_accept, params: { conference_id: conference.short_title, id: event.id }
+        patch :tentative_accept, params: { conference_id: conference.short_title, id: event.id }
       end
 
       it 'shows error message' do
