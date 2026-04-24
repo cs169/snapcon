@@ -71,16 +71,16 @@ module Admin
         source = Conference.find_by(short_title: params[:duplicate_from])
         if source && can?(:read, source)
           @conference = Conference.new(
-            description: source.description,
-            timezone: source.timezone,
-            start_hour: source.start_hour,
-            end_hour: source.end_hour,
-            color: source.color,
-            custom_css: source.custom_css,
-            ticket_layout: source.ticket_layout,
+            description:        source.description,
+            timezone:           source.timezone,
+            start_hour:         source.start_hour,
+            end_hour:           source.end_hour,
+            color:              source.color,
+            custom_css:         source.custom_css,
+            ticket_layout:      source.ticket_layout,
             registration_limit: source.registration_limit,
-            booth_limit: source.booth_limit,
-            organization_id: source.organization_id
+            booth_limit:        source.booth_limit,
+            organization_id:    source.organization_id
           )
           @duplicate_from_source = source.short_title
         else
@@ -98,14 +98,14 @@ module Admin
         source = Conference.find_by(short_title: params[:duplicate_from])
         if source && can?(:read, source)
           @conference.assign_attributes(
-            description: source.description,
-            custom_css: source.custom_css,
-            ticket_layout: source.ticket_layout,
+            description:        source.description,
+            custom_css:         source.custom_css,
+            ticket_layout:      source.ticket_layout,
             registration_limit: source.registration_limit,
-            booth_limit: source.booth_limit,
-            color: source.color,
-            start_hour: source.start_hour,
-            end_hour: source.end_hour
+            booth_limit:        source.booth_limit,
+            color:              source.color,
+            start_hour:         source.start_hour,
+            end_hour:           source.end_hour
           )
         end
       end

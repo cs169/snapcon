@@ -104,8 +104,8 @@ class User < ApplicationRecord
   scope :comment_notifiable, lambda { |conference|
                                joins(users_roles: :role)
                                  .where(roles: { resource_type: 'Conference',
-                                                 resource_id: conference.id,
-                                                 name: %i[organizer cfp] })
+                                                 resource_id:   conference.id,
+                                                 name:          %i[organizer cfp] })
                                  .where(
                                    Role.arel_table[:name]
                                        .eq('cfp')
