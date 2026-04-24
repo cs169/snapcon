@@ -8,6 +8,7 @@ namespace :data do
     existing = Conference.find_by(short_title: short_title)
     if existing
       puts "Destroying existing '#{short_title}' conference to regenerate..."
+      Role.where(resource: existing).delete_all
       existing.destroy!
     end
 
