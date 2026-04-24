@@ -518,7 +518,7 @@ namespace :data do
 
     slot_assignments.each do |ev_idx, day_offset, hour, room|
       event = events_list[ev_idx]
-      start_time = (base_date + day_offset.days).to_time.in_time_zone(conference.timezone).change(hour: hour)
+      start_time = (base_date + day_offset.days).to_time.utc.change(hour: hour)
       EventSchedule.create!(
         event:    event,
         schedule: schedule,
