@@ -130,7 +130,7 @@ module Admin
       if @event.committee_review.blank?
         flash.now[:alert] = 'Committee feedback is required before sending a tentative acceptance email.'
         @tentative_subject = email_settings.tentative_accepted_subject.presence
-        default_body = email_settings.tentative_accepted_body.presence
+        email_settings.tentative_accepted_body.presence
         @missing_committee_review = true
         render :tentative_accept and return
       end
@@ -241,8 +241,8 @@ module Admin
                          "#{duplicated_events.length} copies of '#{@event.title}' created successfully."
                        end
       redirect_to admin_conference_program_events_path(@conference.short_title)
-    rescue StandardError => e
-      flash[:alert] = "Could not duplicate event"
+    rescue StandardError
+      flash[:alert] = 'Could not duplicate event'
       redirect_to admin_conference_program_event_path(@conference.short_title, @event)
     end
 

@@ -150,13 +150,13 @@ class Event < ApplicationRecord
   end
 
   COLORS = {
-    new:                 '#0000FF', # blue
-    withdrawn:           '#FF8000', # orange
-    unconfirmed:         '#FFFF00', # yellow
-    tentatively_accepted:'#FFA500', # amber
-    confirmed:           '#00FF00', # green
-    canceled:            '#848484', # grey
-    rejected:            '#FF0000'  # red
+    new:                  '#0000FF', # blue
+    withdrawn:            '#FF8000', # orange
+    unconfirmed:          '#FFFF00', # yellow
+    tentatively_accepted: '#FFA500', # amber
+    confirmed:            '#00FF00', # green
+    canceled:             '#848484', # grey
+    rejected:             '#FF0000'  # red
   }.freeze
 
   ##

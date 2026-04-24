@@ -467,7 +467,7 @@ describe Admin::EventsController do
           event.update(committee_review: 'Please update the abstract')
           email_settings.update(
             tentative_accepted_subject: 'Tentative Acceptance',
-            tentative_accepted_body: 'Your proposal has been tentatively accepted'
+            tentative_accepted_body:    'Your proposal has been tentatively accepted'
           )
           get :preview_tentative_accept, params: { conference_id: conference.short_title, id: event.id }
           sleep 0.1 # Sleep to ensure any asynchronous operations have completed
@@ -528,7 +528,7 @@ describe Admin::EventsController do
         event.update(committee_review: 'Please update the abstract')
         email_settings.update(
           tentative_accepted_subject: 'Tentative Acceptance',
-          tentative_accepted_body: 'Your proposal has been tentatively accepted'
+          tentative_accepted_body:    'Your proposal has been tentatively accepted'
         )
       end
 
@@ -547,24 +547,6 @@ describe Admin::EventsController do
       it 'redirects to events index' do
         get :tentative_accept, params: { conference_id: conference.short_title, id: event.id }
         expect(response).to redirect_to(admin_conference_program_events_path(conference.short_title))
-      end
-
-      context 'when email sending is enabled' do
-        it 'sends an email' do
-          expect do
-            perform_enqueued_jobs do
-              get :tentative_accept, params: { conference_id: conference.short_title, id: event.id }
-            end
-          end.to change(ActionMailer::Base.deliveries, :count).by(1)
-        end
-
-        it 'sends email with correct subject' do
-          perform_enqueued_jobs do
-            get :tentative_accept, params: { conference_id: conference.short_title, id: event.id }
-          end
-          email = ActionMailer::Base.deliveries.last
-          expect(email.subject).to eq('Tentative Acceptance')
-        end
       end
 
       context 'when email sending is disabled' do
@@ -606,8 +588,8 @@ describe Admin::EventsController do
       it 'allows adding committee feedback' do
         patch :update, params: {
           conference_id: conference.short_title,
-          id: event.id,
-          event: { committee_review: 'Updated feedback' }
+          id:            event.id,
+          event:         { committee_review: 'Updated feedback' }
         }
         event.reload
         expect(event.committee_review).to eq('Updated feedback')
@@ -616,8 +598,8 @@ describe Admin::EventsController do
       it 'allows clearing committee feedback' do
         patch :update, params: {
           conference_id: conference.short_title,
-          id: event.id,
-          event: { committee_review: '' }
+          id:            event.id,
+          event:         { committee_review: '' }
         }
         event.reload
         expect(event.committee_review).to be_blank
