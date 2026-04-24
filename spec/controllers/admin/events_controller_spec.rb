@@ -410,7 +410,7 @@ describe Admin::EventsController do
     end
   end
 
-  describe 'GET #tentative_accept' do
+  describe 'GET #preview_tentative_accept' do
     let(:conference) { create(:conference) }
     let(:organizer) { create(:organizer, resource: conference) }
     let(:event) { create(:event, program: conference.program) }
@@ -423,7 +423,8 @@ describe Admin::EventsController do
     context 'when email sending is disabled' do
       before do
         email_settings.update(send_on_tentative_accepted: false)
-        get :tentative_accept, params: { conference_id: conference.short_title, id: event.id }
+        get :preview_tentative_accept, params: { conference_id: conference.short_title, id: event.id }
+        sleep 0.1 # Sleep to ensure any asynchronous operations have completed
       end
 
       it 'shows warning about email setup' do
@@ -443,7 +444,8 @@ describe Admin::EventsController do
       context 'without committee feedback' do
         before do
           event.update(committee_review: nil)
-          get :tentative_accept, params: { conference_id: conference.short_title, id: event.id }
+          get :preview_tentative_accept, params: { conference_id: conference.short_title, id: event.id }
+          sleep 0.1 # Sleep to ensure any asynchronous operations have completed
         end
 
         it 'shows committee feedback warning' do
@@ -466,7 +468,8 @@ describe Admin::EventsController do
             tentative_accepted_subject: 'Tentative Acceptance',
             tentative_accepted_body: 'Your proposal has been tentatively accepted'
           )
-          get :tentative_accept, params: { conference_id: conference.short_title, id: event.id }
+          get :preview_tentative_accept, params: { conference_id: conference.short_title, id: event.id }
+          sleep 0.1 # Sleep to ensure any asynchronous operations have completed
         end
 
         it 'shows email preview' do
@@ -549,11 +552,13 @@ describe Admin::EventsController do
         it 'sends an email' do
           expect do
             patch :tentative_accept, params: { conference_id: conference.short_title, id: event.id }
+            sleep 0.1 # Sleep to ensure asynchronous email delivery
           end.to change(ActionMailer::Base.deliveries, :count).by(1)
         end
 
         it 'sends email with correct subject' do
           patch :tentative_accept, params: { conference_id: conference.short_title, id: event.id }
+          sleep 0.1 # Sleep to ensure asynchronous email delivery
           email = ActionMailer::Base.deliveries.last
           expect(email.subject).to eq('Tentative Acceptance')
         end
@@ -567,6 +572,7 @@ describe Admin::EventsController do
         it 'does not send an email' do
           expect do
             patch :tentative_accept, params: { conference_id: conference.short_title, id: event.id }
+            sleep 0.1 # Sleep to ensure asynchronous operations have completed
           end.not_to change(ActionMailer::Base.deliveries, :count)
         end
       end
