@@ -11,6 +11,8 @@
 [![Specs](https://github.com/cs169/snapcon/actions/workflows/spec.yml/badge.svg)](https://github.com/cs169/snapcon/actions/workflows/spec.yml)
 [![codecov](https://codecov.io/gh/cs169/snapcon/graph/badge.svg?token=kw6lq9NkSW)](https://codecov.io/gh/cs169/snapcon)
 
+<!-- Practice note: local git workflow check. Does not affect the application. -->
+
 Forked From:
 ## Open Source Event Manager - [osem.io](https://osem.io)
 
